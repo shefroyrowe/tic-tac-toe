@@ -2,11 +2,11 @@
 const gameBoard = ['','','','','','','','',''];
 
 //track which player has made a move
-let userTurn = 'playerOne';
+let playerTurn = 'playerOne';
+let playerMark = '';
 
-//players
-const playerOneMark = 'X';
-const playerTwoMark = 'O';
+
+
 
 //get, record and display player move
 function displayControl(){
@@ -15,27 +15,38 @@ function displayControl(){
         cell.addEventListener('click', (e)=>{
             let { target } = e;
 
-                if(userTurn === 'playerOne' && target.textContent === ''){
-                    userTurn = 'playerTwo';
+            //store player moves to compare with winning
+            let indexes = [], i;
+            for(i = 0; i < gameBoard.length; i++){
+                if (gameBoard[i] === 'X')
+                indexes.push(i);
+            }
+            console.log(indexes);//remove me !!
 
-                    cell.textContent = playerOneMark;
-                    console.log(target.id);//REMOVE ME!!
+                if(playerTurn === 'playerOne' && target.textContent === ''){
+                    playerTurn = 'playerTwo';
+                    playerMark = 'X';
+
+                    cell.textContent = playerMark;
+                    
 
                     if(gameBoard[target.id] === ''){
-                        gameBoard[target.id] = playerOneMark;
-                        console.log(gameBoard);//REMOVE ME!!
+                        gameBoard[target.id] = playerMark;
+                        
                     }
-                } else if(userTurn === 'playerTwo' && target.textContent === ''){
-                    userTurn = 'playerOne';
+                } else if(playerTurn === 'playerTwo' && target.textContent === ''){
+                    playerTurn = 'playerOne';
+                    playerMark = 'O';
 
-                    cell.textContent = playerTwoMark;
-                    console.log(target.id);//REMOVE ME!!
+                    cell.textContent = playerMark;
+                    
 
                     if(gameBoard[target.id] === ''){
-                        gameBoard[target.id] = playerTwoMark;
-                        console.log(gameBoard);//REMOVE ME!!
+                        gameBoard[target.id] = playerMark;
+                        console.log(gameBoard);//remove me !!!
                     }
                 }
+
         });
     });
 }
@@ -54,5 +65,7 @@ function gameOver(){
         [2,4,6]
     ];
 }
-gameOver();
+gameOver();//function call
+
+
 

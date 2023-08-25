@@ -1,11 +1,14 @@
 //gameboard state tracker
 const gameBoard = ['','','','','','','','',''];
 
+//track which player has made a move
 let userTurn = 'playerOne';
 
+//players
 const playerOneMark = 'X';
 const playerTwoMark = 'O';
 
+//get, record and display player move
 function displayControl(){
     let cells = document.querySelectorAll('.cell');
     cells.forEach(cell=>{
@@ -37,3 +40,19 @@ function displayControl(){
     });
 }
 displayControl();//function call
+
+//game over condition
+function gameOver(){
+    const winningMoves = [
+        [0,1,2],
+        [3,4,5],
+        [6,7,8],
+        [0,3,6],
+        [1,4,7],
+        [2,5,8],
+        [0,4,8],
+        [2,4,6]
+    ];
+}
+gameOver();
+

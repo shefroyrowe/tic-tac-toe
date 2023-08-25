@@ -1,8 +1,10 @@
 //gameboard state tracker
 const gameBoard = ['','','','','','','','',''];
 
-let userTurn = true;
-let userMark = 'X';
+let userTurn = 'playerOne';
+
+const playerOneMark = 'X';
+const playerTwoMark = 'O';
 
 function displayControl(){
     let cells = document.querySelectorAll('.cell');
@@ -10,19 +12,28 @@ function displayControl(){
         cell.addEventListener('click', (e)=>{
             let { target } = e;
 
-            for(let i = 0; i < gameBoard.length; i++){
-                if(userTurn === true && target.textContent === ''){
-                    cell.textContent = userMark;
+                if(userTurn === 'playerOne' && target.textContent === ''){
+                    userTurn = 'playerTwo';
+
+                    cell.textContent = playerOneMark;
                     console.log(target.id);//REMOVE ME!!
 
                     if(gameBoard[target.id] === ''){
-                        gameBoard[target.id] = userMark;
+                        gameBoard[target.id] = playerOneMark;
+                        console.log(gameBoard);//REMOVE ME!!
+                    }
+                } else if(userTurn === 'playerTwo' && target.textContent === ''){
+                    userTurn = 'playerOne';
+
+                    cell.textContent = playerTwoMark;
+                    console.log(target.id);//REMOVE ME!!
+
+                    if(gameBoard[target.id] === ''){
+                        gameBoard[target.id] = playerTwoMark;
                         console.log(gameBoard);//REMOVE ME!!
                     }
                 }
-            }
         });
     });
 }
-
-displayControl();
+displayControl();//function call

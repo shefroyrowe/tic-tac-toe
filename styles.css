@@ -1,0 +1,12 @@
+.game--wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 455px;
+    border: 1px solid blue;
+}
+
+.game--wrapper>div {
+    border: 1px solid red;
+    height: 150px;
+    width: 150px;
+}

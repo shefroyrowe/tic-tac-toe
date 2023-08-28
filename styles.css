@@ -1,12 +1,40 @@
-.game--wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 28.5rem;
-    border: 1px solid blue;
+:root {
+    --text: #f7f7fd;
+    --background: #0b0924;
+    --primary: #441a65;
+    --secondary: #350e33;
+    --accent: #ce40c7;
 }
 
-.game--wrapper>div {
-    border: 1px solid red;
-    height: 150px;
-    width: 150px;
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: var(--background);
+    color: var(--text);
 }
+
+.game-board-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    height: 300px;
+    width: 300px;
+}
+
+.cell {
+    border: 1px solid white;
+    height: 100px;
+    width: 100px;
+}
+
+/*
+----------add style if cell is empty using js------------
+
+.cell:hover {
+    background: var(--accent);
+}
+*/

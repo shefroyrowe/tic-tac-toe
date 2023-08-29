@@ -1,4 +1,3 @@
-//NOT FINISHED!!!!!!!!
 
 const gameBoard = ['', '', '', '', '', '', '', '', ''];
 
@@ -13,13 +12,17 @@ function playerMove() {
         cell.addEventListener('click', (e) => {
             let { target } = e;
 
-            if (gameBoard[target.id] === '' && playerTurn === 'player1') {
+            if (gameBoard[target.id] === '' &&
+                playerTurn === 'player1') {
+
                 playerTurn = 'player2';
                 gameBoard[target.id] = player1;
                 console.log(gameBoard);
             }
 
-            if (gameBoard[target.id] === '' && playerTurn === 'player2') {
+            if (gameBoard[target.id] === '' &&
+                playerTurn === 'player2') {
+
                 playerTurn = 'player1';
                 gameBoard[target.id] = player2;
                 console.log(gameBoard);
@@ -30,7 +33,17 @@ function playerMove() {
 }
 playerMove();
 
+
 function displayControl() {
     let gameCells = document.querySelectorAll('.cell');
-    } 
+    gameCells.forEach(function (cell) {
+        cell.addEventListener('click', (e) => {
+            let { target } = e;
+
+            if (gameBoard[target.id] !== '') {
+                target.textContent = gameBoard[target.id];
+            }
+        });
+    });
+}
 displayControl();

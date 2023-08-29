@@ -3,39 +3,45 @@ const gameBoard = ['', '', '', '', '', '', '', '', ''];
 
 
 function playerMove() {
+
     let playerTurn = 'player1';
     const player1 = 'X';
     const player2 = 'O';
+    const player1Moves = [];
+    const player2Moves = [];
 
     let gameCells = document.querySelectorAll('.cell');
     gameCells.forEach(function (cell) {
         cell.addEventListener('click', (e) => {
             let { target } = e;
 
-            if (gameBoard[target.id] === '' &&
-                playerTurn === 'player1') {
+            if (gameBoard[target.id] === '' && playerTurn === 'player1') {
 
                 playerTurn = 'player2';
                 gameBoard[target.id] = player1;
+                player1Moves.push(target.id);
                 console.log(gameBoard);
+                console.log(player1Moves);
             }
 
-            if (gameBoard[target.id] === '' &&
-                playerTurn === 'player2') {
+            if (gameBoard[target.id] === '' && playerTurn === 'player2') {
 
                 playerTurn = 'player1';
                 gameBoard[target.id] = player2;
+                player2Moves.push(target.id);
                 console.log(gameBoard);
+                console.log(player2Moves);
             }
         });
     });
-    return { gameCells };
+    return { gameCells, player1Moves, player2Moves };
 }
 playerMove();
 
 
 function displayControl() {
-    let gameCells = document.querySelectorAll('.cell');
+
+    let { gameCells } = playerMove();
     gameCells.forEach(function (cell) {
         cell.addEventListener('click', (e) => {
             let { target } = e;
@@ -45,5 +51,20 @@ function displayControl() {
             }
         });
     });
+    return { gameCells };
 }
 displayControl();
+
+function findWinner(){
+    const winOptions = [
+        [0,1,2],
+        [3,4,5],
+        [6,7,8],
+        [0,4,8],
+        [2,4,6],
+        [0,3,6],
+        [2,5,8]
+    ]
+
+    let { gameCells } = displayControl();
+}

@@ -6,14 +6,17 @@
     --accent: #ce40c7;
 }
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
     background: var(--background);
     color: var(--text);
 }
@@ -21,18 +24,46 @@ body {
 .game-board-wrapper {
     display: grid;
     grid-template-columns: repeat(3, auto);
+    margin: 3rem 0;
     height: 300px;
     width: 300px;
 }
 
 .cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid white;
+    font-size: 4em;
+    font-weight: bold;
     height: 100px;
     width: 100px;
 }
 
-/*----------add style if cell is empty using js------------*/
-
-.colorCell:hover {
+.cell:hover {
     background: var(--accent);
+}
+
+.game-board-wrapper div:nth-child(1),
+.game-board-wrapper div:nth-child(2),
+.game-board-wrapper div:nth-child(3) {
+    border-top: none;
+}
+
+.game-board-wrapper div:nth-child(7),
+.game-board-wrapper div:nth-child(8),
+.game-board-wrapper div:nth-child(9) {
+    border-bottom: none;
+}
+
+.game-board-wrapper div:nth-child(3),
+.game-board-wrapper div:nth-child(6),
+.game-board-wrapper div:nth-child(9) {
+    border-right: none;
+}
+
+.game-board-wrapper div:nth-child(1),
+.game-board-wrapper div:nth-child(4),
+.game-board-wrapper div:nth-child(7) {
+    border-left: none;
 }

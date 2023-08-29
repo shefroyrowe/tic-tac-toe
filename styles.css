@@ -31,10 +31,8 @@ body {
     width: 100px;
 }
 
-/*
-----------add style if cell is empty using js------------
+/*----------add style if cell is empty using js------------*/
 
-.cell:hover {
+.colorCell:hover {
     background: var(--accent);
 }
-*/

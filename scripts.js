@@ -1,4 +1,6 @@
-const gameBoard = ['','','','','','','','',''];
+//NOT FINISHED!!!!!!!!
+
+const gameBoard = ['', '', '', '', '', '', '', '', ''];
 
 
 function playerMove() {
@@ -11,22 +13,24 @@ function playerMove() {
         cell.addEventListener('click', (e) => {
             let { target } = e;
 
-            if (gameBoard[target.id] === '' && playerTurn === 'player1'){
+            if (gameBoard[target.id] === '' && playerTurn === 'player1') {
                 playerTurn = 'player2';
                 gameBoard[target.id] = player1;
                 console.log(gameBoard);
             }
-    
-            if (gameBoard[target.id] === '' && playerTurn === 'player2'){
-        playerTurn = 'player1';
-        gameBoard[target.id] = player2;
-        console.log(gameBoard);
-    }
+
+            if (gameBoard[target.id] === '' && playerTurn === 'player2') {
+                playerTurn = 'player1';
+                gameBoard[target.id] = player2;
+                console.log(gameBoard);
+            }
+        });
     });
-});
-    };
+    return { gameCells };
+}
 playerMove();
 
 function displayControl() {
-
-};
+    let gameCells = document.querySelectorAll('.cell');
+    } 
+displayControl();

@@ -5,10 +5,10 @@ const gameBoard = ['', '', '', '', '', '', '', '', ''];
 function playerMove() {
 
     let playerTurn = 'player1';
-    const player1 = 'X';
-    const player2 = 'O';
-    const player1Moves = [];
-    const player2Moves = [];
+    let player1Moves = [], player2Moves = [];
+    const player1 = 'X', player2 = 'O';
+
+
 
     let gameCells = document.querySelectorAll('.cell');
     gameCells.forEach(function (cell) {
@@ -32,9 +32,12 @@ function playerMove() {
                 console.log(gameBoard);
                 console.log(player2Moves);
             }
+
+
+
         });
     });
-    return { gameCells, player1Moves, player2Moves };
+    return { gameCells };
 }
 playerMove();
 
@@ -42,6 +45,7 @@ playerMove();
 function displayControl() {
 
     let { gameCells } = playerMove();
+
     gameCells.forEach(function (cell) {
         cell.addEventListener('click', (e) => {
             let { target } = e;
@@ -51,20 +55,21 @@ function displayControl() {
             }
         });
     });
-    return { gameCells };
 }
 displayControl();
 
-function findWinner(){
+
+function findWinner() {
     const winOptions = [
-        [0,1,2],
-        [3,4,5],
-        [6,7,8],
-        [0,4,8],
-        [2,4,6],
-        [0,3,6],
-        [2,5,8]
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+        [0, 3, 6],
+        [2, 5, 8]
     ]
 
-    let { gameCells } = displayControl();
 }
+
+findWinner();

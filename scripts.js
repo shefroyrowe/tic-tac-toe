@@ -1,17 +1,22 @@
 
 let gameBoard = ['', '', '', '', '', '', '', '', ''];
-let gameActive = true;
+
+const player1 = 'X', player2 = 'O';
+
 let playerTurn = 'player1';
 let currentPlayer = () => {
+    let { statusDisplay } = displayControl();
     if (playerTurn === 'player1') {
+        statusDisplay.textContent = `Player X's turn`;
         return player1;
     } else if (playerTurn === 'player2') {
+        statusDisplay.textContent = `Player O's turn`;
         return player2;
     }
 
     return playerTurn;
 };
-const player1 = 'X', player2 = 'O';
+
 
 
 
@@ -27,18 +32,22 @@ function playerMove() {
             if (gameBoard[target.id] === '' && playerTurn === 'player1') {
                 playerTurn = 'player2';
                 gameBoard[target.id] = player1;
+                currentPlayer();
+                findWinner();
                 console.log(gameBoard);
             }
 
             if (gameBoard[target.id] === '' && playerTurn === 'player2') {
                 playerTurn = 'player1';
                 gameBoard[target.id] = player2;
+                currentPlayer();
+                findWinner();
                 console.log(gameBoard);
             }
         });
 
     });
-    return { gameCells, playerTurn, player1, currentPlayer };
+    return { gameCells, playerTurn, player1, player2 };
 }
 playerMove();
 
@@ -58,14 +67,12 @@ function displayControl() {
         });
     });
 
-    statusDisplay.textContent = `Player ${currentPlayer()}'s turn`;
     return { statusDisplay };
 }
 displayControl();
 
 
 function findWinner() {
-    let { gameCells } = playerMove();
     const winOptions = [
         [0, 1, 2],
         [3, 4, 5],
@@ -77,30 +84,17 @@ function findWinner() {
         [2, 4, 6]
     ];
 
-    let board = gameBoard;
-    gameCells.forEach(function (cell) {
-        cell.addEventListener('click', (e) => {
-            let { target } = e;
-
-            for(let i = 0; i <= 7; i++){
-                let winOps = winOptions[i];
-                let winOpsA = winOps[0];
-                let winOpsB = winOps[1];
-                let winOpsC = winOps[2];
-                
-                if (target.textContent === player1 && target.id === winOpsA ||
-                    target.textContent === player1 && target.id === winOpsB ||
-                    target.textContent === player1 && target.id === winOpsC) {
-                    console.log(`player ${player1} made a move @ ${target.id}`);
-            
-                }
-            }
-        });
-    });
-   
-    
+    for(let i = 0; i < 3; i++){
+        if(gameBoard[0].includes(player1) && 
+           gameBoard[1].includes(player1) &&
+           gameBoard[2].includes(player1)){
+           console.log(`win move`);
+  }
+    }
 }
 findWinner();
+
+
 
 function playGame() {
     let { statusDisplay } = displayControl();

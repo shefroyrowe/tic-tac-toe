@@ -84,11 +84,16 @@ function findWinner() {
 
             for(let i = 0; i <= 7; i++){
                 let winOps = winOptions[i];
-                console.log(winOpsA[0]);
-            }
-            if (target.textContent === player1) {
-                console.log(`player ${player1} made a move @ ${target.id}`);
-        
+                let winOpsA = winOps[0];
+                let winOpsB = winOps[1];
+                let winOpsC = winOps[2];
+                
+                if (target.textContent === player1 && target.id === winOpsA ||
+                    target.textContent === player1 && target.id === winOpsB ||
+                    target.textContent === player1 && target.id === winOpsC) {
+                    console.log(`player ${player1} made a move @ ${target.id}`);
+            
+                }
             }
         });
     });

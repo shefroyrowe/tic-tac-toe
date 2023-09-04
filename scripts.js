@@ -6,10 +6,13 @@ const player1 = 'X', player2 = 'O';
 let playerTurn = 'player1';
 let currentPlayer = () => {
     let { statusDisplay } = displayControl();
+    
     if (playerTurn === 'player1') {
         statusDisplay.textContent = `Player X's turn`;
         return player1;
-    } else if (playerTurn === 'player2') {
+    } 
+    
+    if(playerTurn === 'player2') {
         statusDisplay.textContent = `Player O's turn`;
         return player2;
     }
@@ -73,24 +76,66 @@ displayControl();
 
 
 function findWinner() {
-    const winOptions = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
-    ];
+  let { statusDisplay } = displayControl();
 
-    for(let i = 0; i < 3; i++){
         if(gameBoard[0].includes(player1) && 
            gameBoard[1].includes(player1) &&
-           gameBoard[2].includes(player1)){
-           console.log(`win move`);
+           gameBoard[2].includes(player1) ||
+           gameBoard[3].includes(player1) && 
+           gameBoard[4].includes(player1) &&
+           gameBoard[5].includes(player1) ||
+           gameBoard[6].includes(player1) && 
+           gameBoard[7].includes(player1) &&
+           gameBoard[8].includes(player1) ||
+           gameBoard[0].includes(player1) && 
+           gameBoard[3].includes(player1) &&
+           gameBoard[6].includes(player1) ||
+           gameBoard[1].includes(player1) && 
+           gameBoard[4].includes(player1) &&
+           gameBoard[7].includes(player1) ||
+           gameBoard[2].includes(player1) && 
+           gameBoard[5].includes(player1) &&
+           gameBoard[8].includes(player1) ||
+           gameBoard[0].includes(player1) && 
+           gameBoard[4].includes(player1) &&
+           gameBoard[8].includes(player1) ||
+           gameBoard[2].includes(player1) && 
+           gameBoard[4].includes(player1) &&
+           gameBoard[6].includes(player1)){
+           console.log(`Player ${player1} wins`);
+           statusDisplay.textContent = `Player ${player1} wins!`;
   }
-    }
+  if(gameBoard[0].includes(player2) && 
+           gameBoard[1].includes(player2) &&
+           gameBoard[2].includes(player2) ||
+           gameBoard[3].includes(player2) && 
+           gameBoard[4].includes(player2) &&
+           gameBoard[5].includes(player2) ||
+           gameBoard[6].includes(player2) && 
+           gameBoard[7].includes(player2) &&
+           gameBoard[8].includes(player2) ||
+           gameBoard[0].includes(player2) && 
+           gameBoard[3].includes(player2) &&
+           gameBoard[6].includes(player2) ||
+           gameBoard[1].includes(player2) && 
+           gameBoard[4].includes(player2) &&
+           gameBoard[7].includes(player2) ||
+           gameBoard[2].includes(player2) && 
+           gameBoard[5].includes(player2) &&
+           gameBoard[8].includes(player2) ||
+           gameBoard[0].includes(player2) && 
+           gameBoard[4].includes(player2) &&
+           gameBoard[8].includes(player2) ||
+           gameBoard[2].includes(player2) && 
+           gameBoard[4].includes(player2) &&
+           gameBoard[6].includes(player2)){
+           console.log(`Player ${player2} wins`);
+           statusDisplay.textContent = `Player ${player2} wins!`;
+  }
+  if(gameBoard.includes('') === false ){
+    statusDisplay.textContent = `Game draw!`;
+  }
+  
 }
 findWinner();
 

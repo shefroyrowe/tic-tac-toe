@@ -29,6 +29,24 @@ body {
     width: 300px;
 }
 
+h1,
+#p1-points,
+#p2-points {
+    color: orangered;
+}
+
+#p1-points,
+#p2-points {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.player1-score,
+.player2-score {
+    font-size: 1.4rem;
+    margin: 1.2rem 0;
+}
+
 .cell {
     display: flex;
     align-items: center;
@@ -41,7 +59,7 @@ body {
 }
 
 .cell:hover {
-    background: var(--accent);
+    background: var(--primary);
 }
 
 .game-board-wrapper div {
@@ -70,4 +88,28 @@ body {
 .game-board-wrapper div:nth-child(4),
 .game-board-wrapper div:nth-child(7) {
     border-left: none;
+}
+
+.base-elems {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.reset {
+    padding: 0.7rem;
+    font-weight: bold;
+}
+
+.game-status {
+    font-size: 1.7rem;
+    margin: -1rem 0 1.6rem 0;
+}
+
+.reset:hover {
+    transform: rotate(360deg);
+    transition: 0.6s linear;
+    font-size: 1rem;
+    color: orangered;
 }

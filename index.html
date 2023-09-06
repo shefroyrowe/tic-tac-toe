@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icon/tic-tac-toe.png">
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <main class="page-container">
         <h1>TIC TAC TOE YO!</h1>
@@ -22,9 +25,12 @@
             <div id="7" class="cell"></div>
             <div id="8" class="cell"></div>
         </section>
-        <span class="game-status">announcments</span>
-        <button class="reset" onclick="clearGame()">CLEAR</button>
+        <section class="base-elems">
+            <div class="game-status"></div>
+            <button class="reset" onclick="clearGame()">CLEAR</button>
+        </section>
     </main>
     <script src="scripts.js"></script>
 </body>
+
 </html>

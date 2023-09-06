@@ -49,9 +49,9 @@ function displayControl() {
    
     //tell user who's move it is next
     if(playerTurn === player1){
-        statusDisplay.textContent = `Player ${player2}'s turn`;
+        statusDisplay.textContent = `Player [${player2}'s] turn`;
     }else if(playerTurn === player2){
-        statusDisplay.textContent = `Player ${player1}'s turn`;
+        statusDisplay.textContent = `Player [${player1}'s] turn`;
     }
 
     return { statusDisplay, player1Score, player2Score };
@@ -90,25 +90,25 @@ function findWinner() {
         gameBoard[6].includes(playerTurn)) {
 
         if (playerTurn === player1 && gameOn) {
-            statusDisplay.textContent = `Player ${player1} wins!`;
+            statusDisplay.textContent = `Player [${player1}] wins!`;
             player1Points++;
             player1Score.textContent = player1Points;
             gameOn = false;
         } 
         if (player1Points === 3) {
-            statusDisplay.textContent = `Player ${player1} TAKES THE GAME!!`;
+            statusDisplay.textContent = `Player [${player1}] TAKES THE GAME!!`;
             gameOn = false;
         }
         
         else if (playerTurn === player2 && gameOn) {
-            statusDisplay.textContent = `Player ${player2} wins!`;
+            statusDisplay.textContent = `Player [${player2}] wins!`;
             player2Points++;
             player2Score.textContent = player2Points;
             gameOn = false;
         }
 
         if (player2Points === 3) {
-            statusDisplay.textContent = `Player ${player2} TAKES THE GAME!!`;
+            statusDisplay.textContent = `Player [${player2}] TAKES THE GAME!!`;
             gameOn = false;
         }
     }
@@ -129,13 +129,13 @@ function clearGame() {
         gameOn = true;
         gameBoard = ['', '', '', '', '', '', '', '', ''];
         playerTurn = player1;
-        statusDisplay.textContent = `Player ${playerTurn}'s turn`;
+        statusDisplay.textContent = `Player [${playerTurn}'s] turn`;
         gameCells.forEach(cell => cell.textContent = '');
 
         //if any player reaches three wins, reset scores
         if(player1Points === 3 || player2Points === 3){
             player1Score.textContent = '';
-            player1Score.textContent = '';
+            player2Score.textContent = '';
         }
 }
 

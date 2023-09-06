@@ -44,6 +44,10 @@ body {
     background: var(--accent);
 }
 
+.game-board-wrapper div {
+    border-radius: 20%;
+}
+
 .game-board-wrapper div:nth-child(1),
 .game-board-wrapper div:nth-child(2),
 .game-board-wrapper div:nth-child(3) {

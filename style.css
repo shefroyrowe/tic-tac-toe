@@ -1,0 +1,14 @@
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid red;
+    height: 25rem;
+    width: 25rem;
+}
+
+.game-box {
+    border: 1px solid blue;
+    height: 8.2rem;
+    width: 8.2rem;
+}

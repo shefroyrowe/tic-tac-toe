@@ -17,6 +17,10 @@
         <label for="player2name">Player2 Name:</label>
         <input type="text" name="player2name" id="player2name" maxlength="10">
         &nbsp;<span class="player-mark">O</span>
+
+        <!--start game button-->
+        <button type="button" id="start">START</button>
+        <!--<button type="button" id="restart">RESTART</button>-->
     </section>
 
     <main>
@@ -30,9 +34,12 @@
         <div class="game-box" id="7"></div>
         <div class="game-box" id="8"></div>
     </main>
-    <section>
-        <span id="display"></span>
-    </section>
+    <!--display element-->
+    <span id="display"></span>
+    <br>
+    <br>
+    <div>Player-one Score: <span id="player1score"></span></div>
+    <div>Player-two Score: <span id="player2score"></span></div>
 
     <script src="script.js"></script>
 </body>

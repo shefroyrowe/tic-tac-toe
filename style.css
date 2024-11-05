@@ -1,3 +1,9 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 100%;
+    font-size: 1.2rem;
+}
+
 main,
 .game-box {
     display: flex;
@@ -6,9 +12,13 @@ main,
 
 main {
     flex-wrap: wrap;
-    border: 1px solid red;
+    border: 1px solid transparent;
     height: 25rem;
     width: 25rem;
+    margin: 0 auto;
+    box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.75);
 }
 
 .game-box {
@@ -18,4 +28,33 @@ main {
     border: 1px solid blue;
     height: 8.2rem;
     width: 8.2rem;
+}
+
+label,
+input,
+#start,
+#display,
+#player-score {
+    margin: 1rem;
+}
+
+#start {
+    display: block;
+    height: 2rem;
+    width: 6rem;
+    font-weight: bold;
+}
+
+#display,
+#player-score,
+#input-container {
+    position: absolute;
+}
+
+#display {
+    top: 16rem;
+}
+
+#player-score {
+    top: 20rem;
 }

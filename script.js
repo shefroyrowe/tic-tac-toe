@@ -86,32 +86,6 @@ const PlayGame = () => {
                     roundWon = true;
                 }
 
-                //final winners message
-                if (player1_Score > 4 || player2_Score > 4) {
-                    gameWon = true;
-                    if (player1_Score > player2_Score) {
-                        display.textContent =
-                            `Congratulations! ${playerOneName[0] || 'X'}, the match is yours!`;
-                    } else if (player2_Score > player1_Score) {
-                        display.textContent =
-                            `Congratulations! ${playerTwoName[0] || 'O'}, the match is yours!`;
-                    }
-                }
-
-                //reset gameboard for next round
-                if (roundWon) {
-                    gameboard = ['', '', '', '', '', '', '', '', ''];
-                }
-
-                //change start button text if one round has been won and after game is won fully
-                if (roundWon) {
-                    startGame.innerHTML = 'RESTART';
-                }
-                if (gameWon) {
-                    startGame.innerHTML = 'RESET';
-                }
-                //end change start button text if statements
-
             } //end stop score update if statement
         });//end find winner for each 
 
@@ -124,8 +98,34 @@ const PlayGame = () => {
             playerTurn = 'player1';
             roundWon = true;
             //reset gameboard for next round
-            gameboard = ['', '', '', '', '', '', '', '', ''];
+            //gameboard = ['', '', '', '', '', '', '', '', ''];
         }//end check round draw   
+
+        //reset gameboard for next round
+        if (roundWon) {
+            gameboard = ['', '', '', '', '', '', '', '', ''];
+        }
+
+        //change start button text if one round has been won and after game is won fully
+        if (roundWon) {
+            startGame.innerHTML = 'RESTART';
+        }
+        if (gameWon) {
+            startGame.innerHTML = 'RESET';
+        }
+        //end change start button text if statements
+
+        //final winners message
+        if (player1_Score > 4 || player2_Score > 4) {
+            gameWon = true;
+            if (player1_Score > player2_Score) {
+                display.textContent =
+                    `Congratulations! ${playerOneName[0] || 'X'}, the match is yours!`;
+            } else if (player2_Score > player1_Score) {
+                display.textContent =
+                    `Congratulations! ${playerTwoName[0] || 'O'}, the match is yours!`;
+            }
+        }
 
     }));//end play logic for each
 };//end playgame function

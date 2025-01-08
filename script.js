@@ -142,7 +142,7 @@ startGame.addEventListener("click", () => {
         player2.disabled = true;
         gameActive = true;
         gameWon = false;
-        display.textContent = 'GONG YI TANPAI !! (Play 5 rounds)';
+        display.textContent = 'GONG YI TANPAI !! (5 rounds)';
     }
     //keep playing until a player wins 5 rounds - [ restart logic ]
     if (gameActive && roundWon) {
